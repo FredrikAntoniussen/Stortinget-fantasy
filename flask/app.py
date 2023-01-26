@@ -10,9 +10,15 @@ userFil = open("politikere.json", encoding="UTF-8")
 politikerliste= json.load(fil)
 users = json.load(userFil)
 
+favorittliste = []
 
 
 @app.route("/")
 def index():
-    
-    return render_template("index.html",politikerliste = politikerliste)
+    if request.method == "POST":
+        id = request.form["id"]
+        if id in favorittliste:
+            favorittliste.remove(id)
+        else:
+            favorittliste.append(id)
+    return render_template("index.html",politikerliste = politikerliste, favorittliste=favorittliste)

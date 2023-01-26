@@ -1,0 +1,149 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy-stortinget</title>
+    <link rel="stylesheet" href='{{url_for("static", filename="nav.css")}}'>
+    <link rel="stylesheet" href='{{url_for("static", filename="slideshow.css")}}'>
+    <link rel="stylesheet" href='{{url_for("static", filename="grid.css")}}'>
+    <link rel="stylesheet" href='{{url_for("static", filename="more_info.css")}}'>
+    <link rel="stylesheet" href='{{url_for("static", filename="film.css")}}'>
+    <link rel="stylesheet" href='{{url_for("static", filename="trailer.css")}}'>
+    <link rel="stylesheet" href='{{url_for("static", filename="box.css")}}'>
+    <link rel="stylesheet" href='{{url_for("static", filename="about.css")}}'>
+    <link rel="stylesheet" href='{{url_for("static", filename="contact.css")}}'>
+   
+
+    <script src="https://kit.fontawesome.com/235e65070b.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/2ccdaf8cc8.js" crossorigin="anonymous"></script>
+   
+   
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+    
+                
+    
+    
+                <a href="/">
+                    <h4>Fantasy stortinget</h4>
+                </a>
+            </div>
+    
+    
+            <ul class="nav-links ">
+                
+                <li><a href="/top_250">#</a></li>
+                <li><a href="/favoritt">#</a></li>
+                <li><a href="/about_us">Om oss</a></li>
+                <li><a href="/signup">Opprett bruker</a></li>
+                <li><a href="/login">Logg inn</a></li>
+                
+                <li><a href="/search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                
+          
+          
+                
+                
+            </ul>
+            <div class="burger ">
+                <div class="line1 "></div>
+                <div class="line2 "></div>
+                <div class="line3 "></div>
+            </div>
+        </nav>
+    </header> 
+   
+       
+        {% block innhold %}
+        {% endblock %}
+
+        {% block main %}
+        
+        {% endblock %}
+
+        <footer class="footer">
+            <div class="containerf">
+                <div class="row">
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li>
+                                <a href="#">About us</a>
+                            </li>
+                            <li>
+                                <a href="#">Our services</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Guidelines for privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Get help</h4>
+                        <ul>
+                            <li>
+                                <a href="#">Frequently asked questions</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact us</a>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                    <div class="footer-col">
+                        <h4>Follow us</h4>
+                        <div class="social-links">
+                            <a href="# " class="fa fa-facebook "></a>
+                            <a href="# " class="fa fa-twitter "></a>
+                            <a href="# " class="fa fa-instagram "></a>
+                            <a href="# " class="fa fa-linkedin "></a>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+<script>
+    const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+
+
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+
+        navLinks.forEach((link, index) => {
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7+1}s`;
+
+
+        });
+
+    });
+}
+
+navSlide();
+// JavaScript code 
+function search_animal() { 
+    let input = document.getElementById('searchbar').value 
+    input=input.toLowerCase(); 
+    let x = document.getElementsByClassName('animals'); 
+      
+    for (i = 0; i < x.length; i++) {  
+        if (!x[i].innerHTML.toLowerCase().includes(input)) { 
+            x[i].style.display="none"; 
+        } 
+        else { 
+            x[i].style.display="list-item";                  
+        } 
+    } 
+} 
+</script>
+</html>
