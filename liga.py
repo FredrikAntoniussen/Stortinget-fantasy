@@ -9,3 +9,5 @@ class Liga:
         for lag in self.LagListe:
             lst.append(lag._navn)
         return lst
+
+    

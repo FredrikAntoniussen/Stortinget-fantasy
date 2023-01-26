@@ -22,3 +22,16 @@ def index():
         else:
             favorittliste.append(id)
     return render_template("index.html",politikerliste = politikerliste, favorittliste=favorittliste)
+
+
+@app.route("/lag")
+def index1():
+    if request.method == "POST":
+        id = request.form["id"]
+        if id in favorittliste:
+            favorittliste.remove(id)
+        else:
+            favorittliste.append(id)
+    
+
+    return render_template("lag.html", politikerliste = politikerliste, favorittliste = favorittliste)
